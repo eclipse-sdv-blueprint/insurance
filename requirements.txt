@@ -7,3 +7,4 @@ paho-mqtt==2.0.0
 protobuf==4.25.3
 six==1.16.0
 smmap==5.0.1
+coverage==7.4.4

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+options=""
+if [ -t 0 ]; then
+  options="${options} --tty"
+fi
+
+docker build --platform=linux/arm64/v8 --tag insurance-blueprint --quiet --file Dockerfile . &> /dev/null &&
+docker run \
+    insurance-blueprint "$@"
