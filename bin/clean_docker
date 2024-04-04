@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+{
+    docker rm -vf $(docker ps -a -q)
+} || {
+    echo "no containers to remove"
+}
+
+while getopts 'i' OPTION; do
+  case "$OPTION" in
+    i)
+      echo "removing all images"
+      docker rmi -f $(docker images -a -q)
+  esac
+done

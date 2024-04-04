@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+#find * -name "*.py" ! -path "mock" -exec python3 -m doctest {} \;
+
+rm -f .coverage
+for module in $(find applications/insurance_event_detector -name '*.py'); do
+  echo $module
+  coverage run -a --branch -am doctest $module
+done
+
+coverage xml
+coverage report \
+  --show-missing \
+  --skip-covered \
+  --sort=cover \
+  --fail-under=100
