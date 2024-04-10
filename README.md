@@ -42,3 +42,13 @@ The code is organized in three parts:
 - [Edge](./edge/README.md) contains examples for risk event detectors and integration with the Eclipse Orchestration Blueprint
 - *Telematics Platform* contains examples to receive vehicle data, store it and process it as a data product.
 - [Insurance Platform](./src/edc/README.md) showcases consumption of data using *Eclipse Dataspaces*
+
+# Local Testing
+
+To trigger all Unittests and generate a coverage report execute the following command:
+
+```bash
+./dev ./bin/unittest
+```
+
+This builds a docker image, runs it in a container and executes the Unittest script.
